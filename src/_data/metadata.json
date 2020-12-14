@@ -1,0 +1,20 @@
+{
+  "title": "Manoj Karthick",
+  "url": "https://manojkarthick.com/",
+  "description": "Random ramblings about technology, programming and life.",
+  "feed": {
+    "subtitle": "Random ramblings about technology, programming and life.",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://manojkarthick.com/"
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "https://manojkarthick.com/feed/feed.json"
+  },
+  "author": {
+    "name": "Manoj Karthick Selva Kumar",
+    "email": "manojkarthick@ymail.com",
+    "url": "https://manojkarthick.com/about/"
+  }
+}

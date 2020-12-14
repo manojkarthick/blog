@@ -1,0 +1,12 @@
+---
+layout: layouts/home.njk
+permalink: /misc/
+eleventyNavigation:
+  key: Others
+  order: 300
+---
+
+<h2>Quizzes</h2>
+{% set postslist = collections.quizzes %}
+{% include "posts-list.njk" %}
+
