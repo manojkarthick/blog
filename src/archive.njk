@@ -1,0 +1,16 @@
+---
+layout: layouts/home.njk
+permalink: /posts/
+eleventyNavigation:
+  key: Archive
+  order: 200
+---
+
+<h2>Posts</h2>
+{% set showYear = true %}
+{% set postslist = collections.posts %}
+{% include "posts-list.njk" %}
+
+<h2>Shorts</h2>
+{% set postslist = collections.shorts %}
+{% include "posts-list.njk" %}
