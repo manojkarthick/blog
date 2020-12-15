@@ -39,7 +39,7 @@ Answers:
 ![Snapdeal](/img/snapdeal-new-logo.png)
 
 3. Micheal Bloomberg
-![Micheal Bloomberg](https://nyoobserver.files.wordpress.com/2014/10/455652996.jpg?quality=80&w=635)
+![Micheal Bloomberg](/img/micheal-bloomberg.jpg)
 
 4. Los Pollos Hermanos (Breaking Bad)
 ![LosPollosHermanos](/img/Los_Pollos_325.jpg)

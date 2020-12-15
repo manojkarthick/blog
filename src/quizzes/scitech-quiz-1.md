@@ -40,11 +40,11 @@ Few Questions from the world of Science and Technology(mostly!)
 
 1. ![vevo](/img/vevologo.png)
 
-2. ![KhanAcademy](https://upload.wikimedia.org/wikipedia/en/thumb/9/97/Khan_Academy_logo.svg/250px-Khan_Academy_logo.svg.png)
+2. ![KhanAcademy](/img/khan-academy.jpg)
 
-3. ![Tinder](https://az616578.vo.msecnd.net/files/2016/04/02/635951624749836794-1372019803_tinder_img.png)
+3. ![Tinder](/img/tinder.jpg)
 
-4. ![King](https://king.com/images/branding/logo.jpg)
+4. ![King](/img/king-com.jpg)
 
 5. ![Zomato](/img/zomato_favicon.png)
 
