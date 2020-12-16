@@ -4,8 +4,6 @@ date:   2016-09-03
 tags:
   - ruby
   - jekyll
-layout: layouts/post.njk
-permalink: /quizzes/{{ page | gen_permalink }}/
 ---
 
 &#x26a0;&#xfe0f; **Outdated: The updated version of the blog now uses [11ty](https://www.11ty.dev/) and [Netlify](https://www.netlify.com/) for hosting!**

@@ -4,8 +4,6 @@ date: 2016-09-03
 tags:
   - review
   - apple
-layout: layouts/post.njk
-permalink: /posts/{{ page | gen_permalink }}/
 ---
 
 <!-- Excerpt Start -->

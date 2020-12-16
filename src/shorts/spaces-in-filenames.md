@@ -3,8 +3,6 @@ title: "Techthorpe Mini 02 - Remove spaces in Filenames"
 date: 2017-05-05
 tags:
   - shell
-layout: layouts/post.njk
-permalink: /minis/{{ page | gen_permalink }}/
 ---
 
 <!-- Excerpt Start -->

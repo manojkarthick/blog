@@ -2,5 +2,7 @@
   "tags": [
     "posts",
     "recents"
-  ]
+  ],
+  "layout": "layouts/post.njk",
+  "permalink": "/posts/{{ page | gen_permalink }}/"
 }

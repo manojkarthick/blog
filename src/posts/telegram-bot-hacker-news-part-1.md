@@ -4,8 +4,6 @@ date:   2017-05-11
 tags:
   - python
   - tutorials
-layout: layouts/post.njk
-permalink: /posts/{{ page | gen_permalink }}/
 ---
 
 According to Wikipedia, a chatbot is a computer program which conducts a conversation via auditory or textual methods. [1]

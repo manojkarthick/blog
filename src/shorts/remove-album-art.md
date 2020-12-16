@@ -1,11 +1,9 @@
 ---
 title: "Techthorpe Mini 01 - Remove album art"
 date: 2017-05-01
-layout: layouts/post.njk
 tags:
  - shell
  - python
-permalink: /minis/{{ page | gen_permalink }}/
 ---
 <!-- Excerpt Start -->
 I know it's been a long time since I posted on Techthorpe, but I have been busy the past few months. But now I am back in action!

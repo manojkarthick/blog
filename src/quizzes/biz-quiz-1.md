@@ -2,10 +2,8 @@
 title:  "BiZ Quiz 1"
 description: "This is the First Biz Quiz post. Hope you enjoy! "
 date:   2016-08-27
-layout: layouts/post.njk
 tags:
   - quiz
-permalink: /quizzes/{{ page | gen_permalink }}/
 ---
 
 This is the First Biz Quiz post. Hope you enjoy!

@@ -1,5 +1,7 @@
 {
   "tags": [
     "quizzes"
-  ]
+  ],
+  "layout": "layouts/post.njk",
+  "permalink": "/quizzes/{{ page | gen_permalink }}/"
 }

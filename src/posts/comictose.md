@@ -1,11 +1,9 @@
 ---
 title:  "Comictose - A Comic Strip Scraper"
 date:   2016-08-28
-layout: layouts/post.njk
 tags:
   - java
   - cli
-permalink: /posts/{{ page | gen_permalink }}/
 ---
 
 <!-- Excerpt Start -->

@@ -3,8 +3,6 @@ title:  "Techthorpe Mini 03 - Purging your Cloudflare cache"
 date: 2017-05-12
 tags:
  - python
-layout: layouts/post.njk
-permalink: /minis/{{ page | gen_permalink }}/
 ---
 
 <!-- Excerpt Start -->

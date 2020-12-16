@@ -5,8 +5,6 @@ tags:
  - golang
  - tutorials
  - cli
-layout: layouts/post.njk
-permalink: /posts/{{ page | gen_permalink }}/
 ---
 
 <!-- Excerpt Start -->

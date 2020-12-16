@@ -3,8 +3,6 @@ title: "Quiz! Quiz! Bang! Bang! - Sci-tech Quiz"
 date: 2016-08-29
 tags:
   - scitech
-layout: layouts/post.njk
-permalink: /quizzes/{{ page | gen_permalink }}/
 ---
 
 Few Questions from the world of Science and Technology(mostly!)

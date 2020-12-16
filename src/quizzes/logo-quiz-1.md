@@ -1,10 +1,8 @@
 ---
 title:  "Logo Quiz 1"
 date:   2016-09-01
-layout: layouts/post.njk
 tags:
   - logo
-permalink: /quizzes/{{ page | gen_permalink }}/
 ---
 
 Heyy folks! This is the First Logo Quiz on Techthorpe. It's pretty easy :)
