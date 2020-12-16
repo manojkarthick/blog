@@ -8,12 +8,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title or metadata.title }}</title>
   <meta name="description" content="{{ description or title or metadata.description }}">
-  <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
-  <link rel="stylesheet" href="{{ '/css/prism-okaidia.css' | url }}">
+  <!-- capture the CSS content as a Nunjucks variable and feed it through our cssmin filter to minify-->
+  {% set css %}
+    {% include "css/index.css" %}
+    {% include "css/prism-okaidia.css" %}
+  {% endset %}
+  <style>
+    {{ css | cssmin | safe }}
+  </style>
   <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml"
         title="{{ metadata.title }}">
   <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json"
         title="{{ metadata.title }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/img/site.webmanifest">
   {% if env.isProd %}
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ env.tracking.gtag }}"></script>
