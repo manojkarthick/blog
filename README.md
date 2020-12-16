@@ -25,6 +25,10 @@ Built with [11ty](https://11ty.dev) and hosted on [Netlify](https://www.netlify.
 
 ### TODO
 
-[] Add social media sharing configuration
-[] Dark Mode
+* [ ] Add social media sharing configuration
+* [ ] Dark Mode
+
+### Archive
+
+To access the old version of this blog, please visit [manojkarthick.github.io](https://manojkarthick.github.io/).
 
