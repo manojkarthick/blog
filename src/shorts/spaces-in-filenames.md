@@ -28,7 +28,7 @@ rename 's/ /-/g' /path/to/your/directory/* # Replace spaces with hypens.
 If you find yourself doing it over and over again, set up a cron job to execute this command :)
 
 Windows users use:
-```
+```powershell
 cmd /e:on /v:on /c "for %f in ("* *.txt") do (set "n=%~nxf" & set "n=!n: =-!" & ren "%~ff" "!n!" )"
 ```
 

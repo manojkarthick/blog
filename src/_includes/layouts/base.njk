@@ -11,7 +11,9 @@
   <!-- capture the CSS content as a Nunjucks variable and feed it through our cssmin filter to minify-->
   {% set css %}
     {% include "css/index.css" %}
-    {% include "css/prism-okaidia.css" %}
+    {% if prism %}
+      {% include "css/prism-okaidia.css" %}
+    {%  endif %}
   {% endset %}
   <style>
     {{ css | cssmin | safe }}
@@ -35,25 +37,35 @@
     </script>
   {% endif %}
 </head>
-<body>
-<header>
-  <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
+<body class="">
+<div class="content">
+  <header>
+    <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
+    <span class="nav-item-right">
+      <img id="color-scheme-toggle" src="/img/dark.svg" alt="toggle dark mode" width="16px" />
+    </span>
+    {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+    <ul class="nav">
+      {%- for entry in collections.all | eleventyNavigation %}
+        <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a
+            href="{{ entry.url | url }}">{{ entry.title }}</a></li>
+      {%- endfor %}
+    </ul>
+  </header>
+  {% set darkmodejs %}
+    {% include "js/dark-mode.js" %}
+  {% endset %}
+  <script>
+    {{ darkmodejs | safe }}
+  </script>
 
-  {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-  <ul class="nav">
-    {%- for entry in collections.all | eleventyNavigation %}
-      <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a
-          href="{{ entry.url | url }}">{{ entry.title }}</a></li>
-    {%- endfor %}
-  </ul>
-</header>
+  <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
 
-<main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
+    {{ content | safe }}
+  </main>
 
-  {{ content | safe }}
-</main>
-
-<!-- Current page: {{ page.url | url }} -->
+  <!-- Current page: {{ page.url | url }} -->
+</div>
 </body>
 <style>
   pre[class*="language-"] {

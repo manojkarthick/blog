@@ -4,5 +4,6 @@
     "recents"
   ],
   "layout": "layouts/post.njk",
-  "permalink": "/posts/{{ page | gen_permalink }}/"
+  "permalink": "/posts/{{ page | gen_permalink }}/",
+  "prism": true
 }

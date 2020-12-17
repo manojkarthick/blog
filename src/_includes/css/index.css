@@ -7,10 +7,29 @@
   --navy: #17050F;
   --blue: #082840;
   --white: #fff;
+  --black: #000000;
+  --darkmode-bg: #0d1117;
+  --darkmode-text: #c9d1d9;
+  --darkmode-alt-text: #ebeff2;
+  --darkmode-tag-bg-color: #06090f;
+  --darkmode-tag-color: #58a6ff;
 }
 
 * {
   box-sizing: border-box;
+}
+
+body,html{
+  margin:0;
+  width:100%;
+}
+
+.content {
+  max-width:750px;
+  min-height:100vh;
+  width:100%;
+  margin: auto;
+  box-sizing:border-box;
 }
 
 html,
@@ -18,8 +37,17 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Avenir", "Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;;
-  color: var(--darkgray);
+  color: var(--black);
   background-color: var(--white);
+  /*transition: background-color 300ms ease-in-out 0s;*/
+}
+body.dark-mode {
+  color: var(--darkmode-text);
+  background-color: var(--darkmode-bg);
+}
+
+.dark-mode img {
+  filter: grayscale(30%);
 }
 
 p:last-child {
@@ -46,6 +74,10 @@ a[href] {
 
 a[href]:visited {
   color: var(--navy);
+}
+body.dark-mode a[href],
+body.dark-mode a[href]:visited {
+  color: var(--darkmode-text);
 }
 
 main {
@@ -162,6 +194,13 @@ pre {
   margin-right: 1em;
 }
 
+.nav-item-right {
+  display: inline-block;
+  float: right;
+  padding-top: 1em;
+  padding-right: 1em;
+}
+
 .nav-item a[href]:not(:hover) {
   text-decoration: none;
 }
@@ -193,6 +232,11 @@ pre {
 .postlist-item:before {
   font-size: 0.8125em; /* 13px /16 */
   color: var(--darkgray);
+}
+
+body.dark-mode .postlist-date,
+body.dark-mode .postlist-item:before {
+  color: var(--darkmode-text);
 }
 
 .postlist-date {
@@ -233,6 +277,12 @@ pre {
   margin-bottom: 2em;
 }
 
+body.dark-mode .tmpl-home .recents-end-divider,
+body.dark-mode .tmpl-home .recents-title-divider {
+  border: 0.5px solid var(--darkmode-text);
+  margin-bottom: 2em;
+}
+
 .recents-description {
   margin-top: 2em;
   text-align: left;
@@ -268,6 +318,10 @@ pre {
   margin-bottom: 1em;
   margin-top: 1em;
   max-width: 50em;
+}
+
+.dark-mode .post-end-divider {
+  border: 0.5px solid var(--darkmode-text);
 }
 
 .post-title-divider {
@@ -319,6 +373,13 @@ img {
 a[href].post-tag,
 a[href].post-tag:visited {
   color: #fff;
+}
+
+body.dark-mode .post-tag,
+body.dark-mode a[href].post-tag,
+body.dark-mode a[href].post-tag:visited {
+  color: var(--black);
+  background-color: var(--darkmode-tag-color);
 }
 
 /* Warning */
