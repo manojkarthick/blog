@@ -26,7 +26,10 @@ Built with [11ty](https://11ty.dev) and hosted on [Netlify](https://www.netlify.
 ### TODO
 
 * [ ] Add social media sharing configuration
-* [ ] Dark Mode
+* [x] Dark Mode
+* [ ] Improve a11y
+* [ ] Search engine optimization
+* [ ] Minify Javascript
 
 ### Archive
 
