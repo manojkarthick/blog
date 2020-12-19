@@ -1,17 +1,17 @@
 ---
-title: "Techthorpe Mini 01 - Remove album art"
+title: "Mini #1 - Remove album art"
 date: 2017-05-01
 tags:
  - shell
  - python
 ---
 <!-- Excerpt Start -->
-I know it's been a long time since I posted on Techthorpe, but I have been busy the past few months. But now I am back in action!
+I know it's been a long time since I posted on the blog, but I have been busy the past few months. But now I am back in action!
 
 During my absence, I came up with this idea of posting content that take less than 5 minutes of your time to understand. Things that you might find useful in your day to day life. Simple things that you can automate, applications that come in handy.
 <!-- Excerpt End -->
 
-Now that I've explained what Techthorpe Minis are and what you can expect from this series, let's take a look at the first ever Techthorpe Mini :)
+Now that I've explained what Minis are and what you can expect from this series, let's take a look at the first ever Mini :)
 
 Ever downloaded any music from the internet?
 

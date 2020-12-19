@@ -5,7 +5,7 @@ tags:
   - logo
 ---
 
-Heyy folks! This is the First Logo Quiz on Techthorpe. It's pretty easy :)
+Heyy folks! This is the First Logo Quiz. It's pretty easy :)
 Hope you guys enjoy!
 
 ![Logo1](https://raw.githubusercontent.com/manojkarthick/QuizOn/master/images/logos1/reebok.png)

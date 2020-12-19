@@ -1,5 +1,5 @@
 ---
-title:  "Techthorpe Mini 03 - Purging your Cloudflare cache"
+title:  "Mini #3 - Purging your Cloudflare cache"
 date: 2017-05-12
 tags:
  - python
@@ -15,7 +15,7 @@ I've found this XKCD Comic so true when automating things. In this Mini, we won'
 ![Automation XKCD](/img/automation.png)
 <!-- Excerpt End -->
 
-So, the first thing I did after setting up my cloudflare website was to write a script to purge the cache programmatically. It's one of THE most used options and frankly it the only functionality I use regularly on Cloudflare. In this Techthorpe Mini, we will look at how to purge our Cloudflare cache using Python3.
+So, the first thing I did after setting up my cloudflare website was to write a script to purge the cache programmatically. It's one of THE most used options and frankly it the only functionality I use regularly on Cloudflare. In this Mini, we will look at how to purge our Cloudflare cache using Python3.
 
 ```python
 import requests

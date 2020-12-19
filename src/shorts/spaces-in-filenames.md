@@ -1,5 +1,5 @@
 ---
-title: "Techthorpe Mini 02 - Remove spaces in Filenames"
+title: "Mini #2 - Remove spaces in Filenames"
 date: 2017-05-05
 tags:
   - shell
@@ -9,7 +9,7 @@ tags:
 Have you ever used a console and got irritated with spaces in your file names? Read on..
 <!-- Excerpt End -->
 
-It's time for Techthorpe Mini 02 !
+It's time for Mini #2 !
 
 So, have you ever used a console on your machine, be it *NIX or Windows? Then you probably know how much of a PITA it is when file names have spaces in them.
 
