@@ -1,4 +1,5 @@
 ---
+id: "quiz/1"
 title:  "BiZ Quiz 1"
 description: "This is the First Biz Quiz post. Hope you enjoy! "
 date:   2016-08-27

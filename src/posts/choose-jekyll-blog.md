@@ -1,4 +1,5 @@
 ---
+id: "post/4"
 title:  "10 Reasons why you should choose Jekyll for your Blog"
 date:   2016-09-03
 tags:

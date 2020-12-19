@@ -1,4 +1,5 @@
 ---
+id: "quiz/3"
 title:  "Logo Quiz 1"
 date:   2016-09-01
 tags:

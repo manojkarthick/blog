@@ -1,4 +1,5 @@
 ---
+id: "quiz/2"
 title: "Quiz! Quiz! Bang! Bang! - Sci-tech Quiz"
 date: 2016-08-29
 tags:

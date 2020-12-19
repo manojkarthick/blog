@@ -1,4 +1,5 @@
 ---
+id: "mini/3"
 title:  "Mini #3 - Purging your Cloudflare cache"
 date: 2017-05-12
 tags:

@@ -1,4 +1,5 @@
 ---
+id: "post/5"
 title: "Love or Hate? - Macbook Air"
 date: 2016-09-03
 tags:

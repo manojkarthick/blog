@@ -1,4 +1,5 @@
 ---
+id: "mini/2"
 title: "Mini #2 - Remove spaces in Filenames"
 date: 2017-05-05
 tags:

@@ -1,4 +1,5 @@
 ---
+id: "post/3"
 title:  "Command Line URL Shortener in Golang - Part 2"
 date: 2016-08-30
 tags:

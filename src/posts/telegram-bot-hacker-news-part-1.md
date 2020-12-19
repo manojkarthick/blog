@@ -1,4 +1,5 @@
 ---
+id: "post/6"
 title:  "Telegram Bot for Hacker News in Python - Part 1"
 date:   2017-05-11
 tags:

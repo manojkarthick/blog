@@ -1,4 +1,5 @@
 ---
+id: "quiz/4"
 title:  "Woodalangadi - Movie Quiz 1"
 description: "Fan of Hollywood Movies? Illa, namma ooru Kollywood padama? This quiz has both!"
 date:   2016-09-02

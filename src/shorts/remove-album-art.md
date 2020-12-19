@@ -1,4 +1,5 @@
 ---
+id: "mini/1"
 title: "Mini #1 - Remove album art"
 date: 2017-05-01
 tags:

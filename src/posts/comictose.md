@@ -1,4 +1,5 @@
 ---
+id: "post/2"
 title:  "Comictose - A Comic Strip Scraper"
 date:   2016-08-28
 tags:
