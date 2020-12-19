@@ -83,6 +83,11 @@ module.exports = function (eleventyConfig) {
     return [...tagSet];
   });
 
+  eleventyConfig.addCollection("content", function(collectionApi) {
+    // Also accepts an array of globs!
+    return collectionApi.getFilteredByGlob(["src/posts/*.md", "src/quizzes/*.md", "src/shorts/*.md"]);
+  });
+
   eleventyConfig.addPassthroughCopy("src/img");
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
