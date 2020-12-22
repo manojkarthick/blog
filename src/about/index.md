@@ -29,4 +29,4 @@ I hope to share my thoughts on technology, programming, data science and publish
 
 Built with [11ty](https://www.11ty.dev/) and hosted on [Netlify](https://www.netlify.com/).
 
-This blog is also available as [Atom](/feed/feed.xml) and [JSON](/feed/feed.json) Feeds.
+This blog is also available as <a href="/feed/feed.xml" class="umami--click--atom-feed">Atom</a> and <a href="/feed/feed.json" class="umami--click--json-feed">JSON</a> Feeds.

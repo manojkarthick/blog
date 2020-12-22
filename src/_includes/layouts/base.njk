@@ -40,9 +40,9 @@
       </script>
     {% endif %}
     {# Check if Umami tracking is enabled #}
-    {% if env.trackung.umami %}
+    {% if env.tracking.umami %}
       <script async defer data-website-id="8716cda6-50d4-4b35-a647-840ef04f5718"
-              src="/js/umami.js" data-host-url="https://umami-mk.herokuapp.com"></script>
+              src="/js/umami.js" data-host-url="https://umami-mk.herokuapp.com" data-do-not-track="true"></script>
     {% endif %}
   {% endif %}
 </head>
@@ -51,7 +51,7 @@
   <header>
     <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
     <span class="nav-item-right">
-      <img id="color-scheme-toggle" src="/img/dark.svg" alt="toggle dark mode" width="16px" />
+      <img id="color-scheme-toggle" class="umami--click--dark-mode" src="/img/dark.svg" alt="toggle dark mode" width="16px" />
     </span>
     {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
     <ul class="nav">
