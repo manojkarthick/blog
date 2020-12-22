@@ -43,6 +43,13 @@
     {% if env.tracking.umami %}
       <script async defer data-website-id="8716cda6-50d4-4b35-a647-840ef04f5718"
               src="/js/umami.js" data-host-url="https://umami-mk.herokuapp.com" data-do-not-track="true"></script>
+    <script>
+      function log_click(name) {
+        let click_value = ' click';
+        umami(name.concat(click_value));
+        return true;
+      }
+    </script>
     {% endif %}
   {% endif %}
 </head>
