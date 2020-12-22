@@ -26,16 +26,24 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
   <link rel="manifest" href="/img/site.webmanifest">
+  <!-- Disable Tracking on dev environment -->
   {% if env.isProd %}
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ env.tracking.gtag }}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '{{ env.tracking.gtag }}');
-    </script>
-    <script async defer data-website-id="8716cda6-50d4-4b35-a647-840ef04f5718" src="https://umami-mk.herokuapp.com/umami.js"></script>
+    {# Check if google analytics tracking is enabled #}
+    {% if env.tracking.google %}
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id={{ env.tracking.gtag }}"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ env.tracking.gtag }}');
+      </script>
+    {% endif %}
+    {# Check if Umami tracking is enabled #}
+    {% if env.trackung.umami %}
+      <script async defer data-website-id="8716cda6-50d4-4b35-a647-840ef04f5718"
+              src="/js/umami.js" data-host-url="https://umami-mk.herokuapp.com"></script>
+    {% endif %}
   {% endif %}
 </head>
 <body class="">
