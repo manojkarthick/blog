@@ -24,7 +24,7 @@ tags:
 
 3.  Minimalist Poster for which awesome movie ???
 
-![image](https://raw.githubusercontent.com/manojkarthick/QuizOn/master/images/karakk.jpg)
+![image](/img/karakk.jpg)
 
 4. This actor has the habit of shooting short films starring his family members. One fine day, he and his music director friend along with his family were seeing the film, “Inglorious Basterds”. They were planning to start a production house, and after getting inspired by the film named their company after a German word. Their production “Kaaka Muttai” recently won the Best Children’s film and Best Child Actors awards at the 62nd National Film Awards. Name the production house and the actor.
 
