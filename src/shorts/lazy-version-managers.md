@@ -1,7 +1,7 @@
 ---
 id: "mini/4"
 title:  "Mini #4 - Improving your terminal startup time"
-date: 2020-12-21
+date: 2020-12-21 02:00:00
 tags:
  - shell
 ---
