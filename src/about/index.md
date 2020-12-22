@@ -12,9 +12,9 @@ I'm Manoj Karthick from Vancouver, Canada. I completed my Masters Degree in Comp
 You can find me across the interwebs as @manojkarthick.
 
 Links:
-* [Github](https://github.com/manojkarthick)
-* [Twitter](https://twitter.com/manojkarthick)
-* [LinkedIn](https://in.linkedin.com/in/manojkarthick).
+* <a href="https://github.com/manojkarthick" {% if env.isProd %}onclick="return log_click('github')"{% endif %}>Github</a>
+* <a href="https://twitter.com/manojkarthick" {% if env.isProd %}onclick="return log_click('twitter')"{% endif %}>Twitter</a>
+* <a href="https://in.linkedin.com/in/manojkarthick" {% if env.isProd %}onclick="return log_click('linkedin')"{% endif %}>LinkedIn</a>
 
 <br/>
 
