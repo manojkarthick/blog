@@ -13,7 +13,7 @@ According to Wikipedia, a chatbot is a computer program which conducts a convers
 The Telegram instant messaging app is known for it's wide selection of chat bots ranging from bots to download videos from Youtube to ones which can post a gist on Github. In this particular tutorial we will create a Telegram Bot which will display information from Hacker News. Hacker News is a very popular forum/social news website focusing on technology, science, software engineering and entreprenuership. I am an avid reader of Hacker News and I wanted to create a Telegram bot for getting the latest/top feed from the Hacker News site.
 <!-- Excerpt End -->
 
-<img src="https://apifriends.com/wp-content/uploads/2018/08/hacker-news.jpg" class="responsive"/>
+<img src="https://apifriends.com/wp-content/uploads/2018/08/hacker-news.jpg" class="responsive" alt="Hacker news logo"/>
 
 
 Prerequisites:

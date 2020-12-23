@@ -10,7 +10,7 @@ tags:
 <!-- Excerpt Start -->
 While Git is currently the default choice for version control, it's easy to screw up things and the commands can be a little difficult to remember. Over the past five years of working with Git, I've collected a bunch of aliases that I've come to depend on for my daily workflow. In this blog post, I'll be sharing my aliases with the hope that these make your life a little easier.
 
-<img src="/img/git-xkcd.png" width="300" height="200" />
+<img src="/img/git-xkcd.png" width="300" height="200" alt="XKCD comic 1597 about the difficulty of git" />
 <!-- Excerpt End -->
 
 If you're unaware of Git aliases, they are extensions that allow you to add new commands to git. You can define global git aliases for the current user at `~/.gitconfig`. Before we jump in, do note that I've gathered this collection over time from experimentation, work, blog posts, etc - <ins>in no way do I claim these to be my own<ins>.
