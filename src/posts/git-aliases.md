@@ -17,7 +17,7 @@ If you're unaware of Git aliases, they are extensions that allow you to add new 
 
 #### Basics
 
-The first few aliases are quite straightforward, they are simply shorter notations to existing top level git commands. 
+The first few aliases are quite straightforward, they are simply shorter notations to existing top level git commands.
 
 ```shell
 co = checkout
@@ -56,7 +56,7 @@ bm = branch --merged
 
 #### Stash list
 
-If you are like me, you would have created a mountain of stashed changes over time that becomes harder to keep track of. This alias creates a color coded 
+If you are like me, you would have created a mountain of stashed changes over time that becomes harder to keep track of. This alias creates a color coded list of all your stashes.
 
 ```shell
 sl = stash list --pretty=format:\"%C(red)%h%C(reset) - %C(dim yellow)(%C(bold magenta)%gd%C(dim yellow))%C(reset) %<(70,trunc)%s %C(gree  n)(%cr) %C(bold blue)<%an>%C(reset)\"
@@ -67,7 +67,7 @@ sl = stash list --pretty=format:\"%C(red)%h%C(reset) - %C(dim yellow)(%C(bold ma
 
 #### Discard
 
-Completely discard any changes uncommitted changes made (staged, modified or untracked) for a clean slate.
+Completely discard any uncommitted changes made (staged, modified or untracked) for a clean slate.
 
 ```shell
 discard = !git stash save --keep-index --include-untracked && git stash drop
@@ -99,7 +99,7 @@ Ever wondered which directory has the most amount of changes before committing? 
 dd = diff --dirstat --find-copies --find-renames --histogram --color
 ```
 
-I hope you found these aliases useful. I'll update this blog post when more aliases find a home in my gitconfig. 
+I hope you found these aliases useful. I'll update this blog post when more aliases find a home in my gitconfig.
 
 
 Also check out [ohshitgit.com](https://ohshitgit.com/) for more tips on fixing your git mistakes.
