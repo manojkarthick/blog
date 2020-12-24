@@ -1,6 +1,6 @@
 ---
 layout: layouts/post.njk
-title: About Me
+title: About
 templateClass: tmpl-post
 eleventyNavigation:
   key: About
@@ -25,8 +25,8 @@ You can find me across the interwebs as @manojkarthick :
 
 ### About this Blog
 
-I hope to share my thoughts on technology, programming, data science and publish programming tutorials on this blog.
+I hope to share my thoughts on technology, programming, data engineering and publish tutorials on this blog.
 
 Built with [11ty](https://www.11ty.dev/) and hosted on [Netlify](https://www.netlify.com/).
 
-This blog is also available as <a href="/feed/feed.xml" {% if env.isProd %}onclick="return log_click('atom feed')"{% endif %}>Atom</a> and <a href="/feed/feed.json" {% if env.isProd %}onclick="return log_click('json feed')"{% endif %}>JSON</a> Feeds.
+This blog is also available as <i class="fas fa-rss"></i> <a href="/feed/feed.xml" {% if env.isProd %}onclick="return log_click('atom feed')"{% endif %}>Atom</a> and <a href="/feed/feed.json" {% if env.isProd %}onclick="return log_click('json feed')"{% endif %}>JSON</a> Feeds.
