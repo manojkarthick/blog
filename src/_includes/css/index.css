@@ -13,6 +13,8 @@
   --darkmode-alt-text: #ebeff2;
   --darkmode-tag-bg-color: #06090f;
   --darkmode-tag-color: #58a6ff;
+  --darkmode-link-color: #58a6ff;
+  --regular-link-color: #0366d6;
 }
 
 * {
@@ -68,6 +70,27 @@ p,
   line-height: 1.45;
 }
 
+.post-content a[href]:not(:hover) {
+  color: var(--regular-link-color);
+  text-decoration: none;
+}
+
+.post-content a[href]:visited {
+  color: var(--regular-link-color);
+}
+
+
+
+.dark-mode .post-content a[href]:not(:hover) {
+  color: var(--darkmode-link-color);
+  text-decoration: none;
+}
+
+.dark-mode .post-content a[href]:visited {
+  color: var(--darkmode-link-color);
+}
+
+
 a[href] {
   color: var(--blue);
 }
@@ -75,6 +98,7 @@ a[href] {
 a[href]:visited {
   color: var(--navy);
 }
+
 body.dark-mode a[href],
 body.dark-mode a[href]:visited {
   color: var(--darkmode-text);
@@ -336,6 +360,9 @@ body.dark-mode .tmpl-home .recents-title-divider {
 img {
   height: auto;
   max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .footer-divider {
@@ -417,4 +444,33 @@ a[href].direct-link:focus:visited,
 .footer-external-links {
   color: #adadad !important;
   font-size: 14px !important;
+}
+
+.footer-next {
+  padding: 0.5em;
+  float: right;
+  text-decoration: none;
+  text-align: right;
+}
+
+.footer-previous {
+  float: left;
+  padding: 0.5em;
+  text-align: left;
+}
+
+.between-posts-navigation {
+  padding-bottom: 6em;
+}
+
+body.dark-mode .between-posts-navigation a[href],
+body.dark-mode .between-posts-navigation a[href]:visited {
+  text-decoration: none;
+  color: var(--darkmode-link-color);
+}
+
+.between-posts-navigation a[href],
+.between-posts-navigation a[href]:visited {
+  text-decoration: none;
+  color: var(--regular-link-color);
 }

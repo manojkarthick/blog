@@ -25,11 +25,20 @@ Built with [11ty](https://11ty.dev) and hosted on [Netlify](https://www.netlify.
 
 ### TODO
 
-* [ ] Add social media sharing configuration
-* [x] Dark Mode
-* [ ] Improve a11y
 * [ ] Search engine optimization
 * [ ] Minify Javascript
+* [ ] Add social media sharing configuration
+* [x] Dark Mode
+* [x] Improve a11y
+* [ ] Non-overlapping tap targets
+* [x] Center align images
+* [x] Different link colors
+* [ ] Sticky Tabs?
+* [x] Previous/Next articles aligned on either side
+* [x] Previous/Next articles with left/right arrows
+* [x] Images/Icons/SVG for Twitter, Github, LinkedIn links
+* [ ] ~~Space between underline~~
+* [ ] ~~Night mode button~~
 
 ### Archive
 

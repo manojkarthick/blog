@@ -22,15 +22,18 @@ templateClass: tmpl-post
 
 <hr align="left" class="post-end-divider">
 
-<ul>
-    {%- set nextPost = collections.recents | getNextCollectionItem(page) %}
-    {%- if nextPost %}
-        <li>Next: <a href="{{ nextPost.url | url }}">{{ nextPost.data.title }}</a>
-        </li>
-    {% endif %}
-    {%- set previousPost = collections.recents | getPreviousCollectionItem(page) %}
-    {%- if previousPost %}
-        <li>Previous: <a href="{{ previousPost.url | url }}">{{ previousPost.data.title }}</a>
-        </li>
-    {% endif %}
-</ul>
+<div class="between-posts-navigation">
+  {%- set previousPost = collections.recents | getPreviousCollectionItem(page) %}
+  {%- if previousPost %}
+    <span class="footer-previous">
+      <a href="{{ previousPost.url | url }}">&larr; {{ previousPost.data.title }}</a>
+    </span>
+  {% endif %}
+
+  {%- set nextPost = collections.recents | getNextCollectionItem(page) %}
+  {%- if nextPost %}
+    <span class="footer-next">
+      <a href="{{ nextPost.url | url }}">{{ nextPost.data.title }} &rarr;</a>
+    </span>
+  {% endif %}
+</div>

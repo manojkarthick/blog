@@ -5,16 +5,16 @@ templateClass: tmpl-post
 eleventyNavigation:
   key: About
   order: 500
+includeFontAwesome: true
 ---
 
 I'm Manoj Karthick from Vancouver, Canada. I completed my Masters Degree in Computing from Simon Fraser University and currently work as a Data Engineer.
 
-You can find me across the interwebs as @manojkarthick.
+You can find me across the interwebs as @manojkarthick :
 
-Links:
-* <a href="https://github.com/manojkarthick" {% if env.isProd %}onclick="return log_click('github')"{% endif %}>Github</a>
-* <a href="https://twitter.com/manojkarthick" {% if env.isProd %}onclick="return log_click('twitter')"{% endif %}>Twitter</a>
-* <a href="https://in.linkedin.com/in/manojkarthick" {% if env.isProd %}onclick="return log_click('linkedin')"{% endif %}>LinkedIn</a>
+* <i class="fab fa-github"></i> <a href="https://github.com/manojkarthick" {% if env.isProd %}onclick="return log_click('github')"{% endif %}>Github</a>
+* <i class="fab fa-twitter"></i> <a href="https://twitter.com/manojkarthick" {% if env.isProd %}onclick="return log_click('twitter')"{% endif %}> Twitter</a>
+* <i class="fab fa-linkedin"></i> <a href="https://in.linkedin.com/in/manojkarthick" {% if env.isProd %}onclick="return log_click('linkedin')"{% endif %}>LinkedIn</a>
 
 <br/>
 
