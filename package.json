@@ -8,7 +8,8 @@
     "serve": "eleventy --serve",
     "start": "eleventy --serve",
     "debug": "DEBUG=* eleventy",
-    "clean": "rm -rf _site"
+    "clean": "rm -rf _site",
+    "cards": "./src/scripts/cards.sh"
   },
   "author": {
     "name": "Manoj Karthick Selva Kumar",
