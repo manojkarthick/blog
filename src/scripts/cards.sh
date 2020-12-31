@@ -5,7 +5,7 @@ PROJECTS=(
   "manojkarthick/git-trend"
   "manojkarthick/blog"
   "manojkarthick/dotfiles"
-  "manojkarthick/expense-log"
+  "manojkarthick/expenses"
   "manojkarthick/PCRegression"
   "manojkarthick/comictose"
   "manojkarthick/OnBook"
