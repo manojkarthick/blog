@@ -9,6 +9,7 @@ module.exports = {
   tracking: {
     google: false,
     umami: true,
+    plausible: true,
     gtag: "G-D65X3RE45N"
   }
 }
