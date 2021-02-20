@@ -6,6 +6,8 @@ PROJECTS=(
   "manojkarthick/blog"
   "manojkarthick/dotfiles"
   "manojkarthick/expenses"
+  "manojkarthick/github-upload-asset"
+  "manojkarthick/pqrs"
   "manojkarthick/PCRegression"
   "manojkarthick/comictose"
   "manojkarthick/OnBook"
