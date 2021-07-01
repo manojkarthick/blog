@@ -8,8 +8,8 @@ module.exports = {
   isProd,
   tracking: {
     google: false,
-    umami: true,
-    plausible: true,
+    umami: false,
+    plausible: false,
     gtag: "G-D65X3RE45N"
   }
 }
