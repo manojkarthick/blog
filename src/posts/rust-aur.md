@@ -28,10 +28,20 @@ The AUR (Arch User Repository) is a community driven package repository for Arch
 
 Before we get started, you'll need access to an Arch Linux machine or a VM. My go to for creating virtual machines is [Vagrant](https://www.vagrantup.com/). Follow the instructions on [this](https://www.vagrantup.com/docs/installation) page to install Vagrant. You can use my [Vagrantfile](https://github.com/manojkarthick/boxes/blob/master/archlinux/Vagrantfile) for reference. Make sure to add the folder containing your Rust project's source code to the `synced_folder` list.
 
+#### Dependencies
+
+To install all the dependencies needed for this tutorial, install gcc and base-devel if not already installed
+```shell
+sudo pacman -Syu
+sudo pacman -S gcc base-devel git
+```
+
 #### Cargo-aur
 
-AUR requires that every project supply a `PKGBUILD` and `.SRCINFO` file containing build information and metadata about the package respectively. We will be using the [cargo-aur](https://crates.io/crates/cargo-aur) tool that adds a `cargo aur` subcommand to generate this files. To install `cargo-aur`, run `cargo install aur`.
-
+AUR requires that every project supply a `PKGBUILD` and `.SRCINFO` file containing build information and metadata about the package respectively. We will be using the [cargo-aur](https://crates.io/crates/cargo-aur) tool that adds a `cargo aur` subcommand to generate this files.
+```shell
+cargo install cargo-aur
+```
 
 ### Instructions
 
@@ -53,15 +63,7 @@ cargo aur
 
 This should generate two files: a `PKGBUILD` file and a tarball, `<package_name>-<version>-<architecture>.tar.gz`.  Copy these files to the `<package_name>-bin` git folder created in the previous step.
 
-#### 3. Generating the package metadata
-
-Metadata about the package is contained in a file named `.SRCINFO`. To generate this file, navigate the AUR repository folder run:
-
-```shell
-makepkg --printsrcinfo > .SRCINFO
-```
-
-#### 4. Upload the tarball
+#### 3. Upload the tarball
 
 1. If you use GitHub or GitLab for hosting your source code, make sure there exists a release for your package or create a new release.
 2. Upload the tarball created in the second step to the assets section of the GitHub release. You can use the GitHub UI to upload the asset.
@@ -70,6 +72,15 @@ makepkg --printsrcinfo > .SRCINFO
 ```shell
 github-upload-asset --owner <username> --repo <package_name> --release-tag "<tag>" --asset-path <path/to/tarball>
 ```
+
+#### 4. Generating the package metadata
+
+Metadata about the package is contained in a file named `.SRCINFO`. To generate this file, navigate the AUR repository folder run:
+
+```shell
+makepkg --printsrcinfo > .SRCINFO
+```
+
 
 #### 5. Verify if the package builds
 
@@ -105,4 +116,5 @@ If you're interested in a real world example, check out Reddsaver, a command lin
 
 Cheers!
 
-
+Updates
+* 2021/09/05: Reorder instructions and update pre-requisites.

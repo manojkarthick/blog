@@ -6,7 +6,7 @@ Built with [11ty](https://11ty.dev) and hosted on [Netlify](https://www.netlify.
 ### Building this site
 
 1. Clone this repository to your local machine: `git clone git@github.com:manojkarthick/blog.git`
-2. Install nodejs v12.18.3. Follow the instructions [here](https://github.com/nvm-sh/nvm#usage) to install a specific version using [nvm](https://github.com/nvm-sh/nvm)
+2. Install nodejs v12.18.3. Follow the instructions [here](https://github.com/nvm-sh/nvm#usage) to install a specific version using [fnm](https://github.com/Schniz/fnm)
 3. Install dependencies for this project: `npm install`
 4. Run the following command to build the site: `npm run build`
 5. Serve the site on a local webserver: `npm run serve`
@@ -33,7 +33,6 @@ Built with [11ty](https://11ty.dev) and hosted on [Netlify](https://www.netlify.
 * [ ] Non-overlapping tap targets
 * [x] Center align images
 * [x] Different link colors
-* [ ] Sticky Tabs?
 * [x] Previous/Next articles aligned on either side
 * [x] Previous/Next articles with left/right arrows
 * [x] Images/Icons/SVG for Twitter, Github, LinkedIn links
