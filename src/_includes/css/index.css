@@ -474,3 +474,13 @@ body.dark-mode .between-posts-navigation a[href]:visited {
   text-decoration: none;
   color: var(--regular-link-color);
 }
+
+.projects a[href] {
+  color: var(--regular-link-color) !important;
+  text-decoration: none;
+}
+
+body.dark-mode .projects a[href] {
+  color: var(--darkmode-link-color) !important;
+  text-decoration: none;
+}

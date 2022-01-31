@@ -6,6 +6,7 @@ const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const CleanCSS = require("clean-css");
+const axios = require("axios");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -52,6 +53,19 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("min", (...numbers) => {
     return Math.min.apply(null, numbers);
+  });
+
+  // add filter for fetching github repository information
+  eleventyConfig.addNunjucksAsyncFilter("githubInfo", async function(repository, callback) {
+    console.log(`Gathering information from the Github API for ${repository}`);
+    const classPrefix = "github-info";
+    const githubToken = process.env.GITHUB_TOKEN;
+    let repoInfo = await getRepositoryInformation(repository, classPrefix, githubToken);
+    if (repoInfo == "errored") {
+      callback(null, repository);
+    } else {
+      callback(null, repoInfo);
+    }
   });
 
   eleventyConfig.addCollection("tagList", function (collection) {
@@ -179,4 +193,44 @@ function extractExcerpt(article) {
   });
 
   return excerpt;
+}
+
+async function getRepositoryInformation(repository, classPrefix, githubToken) {
+  const url = `https://api.github.com/repos/${repository}`;
+  const response = await axios.get( url, { headers: {"Authorization": `Bearer ${githubToken}`}} );
+
+  try {
+    const data = response ? response.data : null;
+
+    let language = "unknown";
+    if (data.language) {
+      language = data.language
+    }
+    let listItems = ""
+    if (data.description) {
+      listItems = listItems.concat(`<li class="${classPrefix}-description">${data.description}</li>`);
+    }
+    if (data.language) {
+      language = data.language
+      listItems = listItems.concat(`<li class="${classPrefix}-lang">Language:<span> ${data.language}</li>`);
+    } else {
+      listItems = listItems.concat(`<li class="${classPrefix}-lang">Language:<span> unknown</li>`);
+    }
+    if (data.stargazers_count > 0) {
+      listItems = listItems.concat(`<li class="${classPrefix}-stars">Stars:<span> ${data.watchers} ⭐️</li>`);
+    }
+    const details = `
+    <ul>
+      <li><a href="https://github.com/${repository}" class="${classPrefix}-name" target="_blank">${data.name}</a>
+        <ul>
+        ${listItems}
+        </ul>
+      </li>
+    </ul>
+    `
+    return details;
+  } catch (err) {
+    console.error("Unable to get repository information: ", err);
+    return "errored";
+  }
 }
