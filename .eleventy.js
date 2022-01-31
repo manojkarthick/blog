@@ -106,6 +106,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
 
+  // add shortcode for seting build date time
+  eleventyConfig.addShortcode('buildDateTime', () => {
+    return `${DateTime.utc().toFormat('MMMM dd, yyyy HH:mm')} UTC`;
+  });
+
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
     html: true,
