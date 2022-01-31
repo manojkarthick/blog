@@ -9,3 +9,4 @@ node_modules/
 # Local lighthouse reports
 .lighthouse
 
+.envrc
