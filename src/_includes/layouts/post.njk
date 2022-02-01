@@ -2,6 +2,19 @@
 layout: layouts/base.njk
 templateClass: tmpl-post
 ---
+<head>
+  {% metagen
+    title=title,
+    desc=desc,
+    url=url + page.url,
+    img=img,
+    img_alt=img_alt,
+    twitter_card_type=type,
+    twitter_handle=twitter,
+    name=name
+%}
+</head>
+
 <div class="post-heading">{{ title }}</div>
 
 {% if tags %}
