@@ -7,6 +7,7 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const CleanCSS = require("clean-css");
 const axios = require("axios");
+const metagen = require("eleventy-plugin-metagen");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -139,6 +140,9 @@ module.exports = function (eleventyConfig) {
     ui: false,
     ghostMode: false
   });
+
+  // plugin to generate meta tags for social media
+  eleventyConfig.addPlugin(metagen);
 
   return {
     templateFormats: [

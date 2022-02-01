@@ -27,7 +27,8 @@
     "markdown-it-anchor": "^5.2.5"
   },
   "dependencies": {
+    "axios": "^0.25.0",
     "clean-css": "^4.2.3",
-    "axios": "^0.25.0"
+    "eleventy-plugin-metagen": "^1.5.2"
   }
 }
