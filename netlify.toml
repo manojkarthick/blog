@@ -1,2 +1,2 @@
 [functions."scheduled-deploy"]
-schedule = "44 * * * *"
+schedule = "5 * * * *"
