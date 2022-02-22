@@ -7,7 +7,7 @@ tags:
 - automation
 desc: "Using Netlify scheduled functions (cron jobs) to rebuild your website periodically"
 url: https://manojkarthick.com
-img: https://manojkarthick.com/img/sony-wh-1000xm4.jpg
+img: https://manojkarthick.com/img/netlify-scheduled-function.png
 img_alt: "Sony WH-1000XM4 Headphones"
 type: summary_large_image
 twitter: manojkarthick
