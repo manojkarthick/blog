@@ -9,6 +9,34 @@ const CleanCSS = require("clean-css");
 const axios = require("axios");
 const metagen = require("eleventy-plugin-metagen");
 
+// Cache for GitHub API responses with timestamps
+const githubCache = new Map();
+const CACHE_DURATION = 60 * 60 * 1000; // 1 hour in milliseconds
+
+function getCachedData(key) {
+  const cached = githubCache.get(key);
+  if (!cached) return null;
+
+  const { data, timestamp } = cached;
+  const now = Date.now();
+
+  // Check if cache is still valid (less than 1 hour old)
+  if (now - timestamp < CACHE_DURATION) {
+    return data;
+  }
+
+  // Cache expired, remove it
+  githubCache.delete(key);
+  return null;
+}
+
+function setCachedData(key, data) {
+  githubCache.set(key, {
+    data: data,
+    timestamp: Date.now()
+  });
+}
+
 // Create markdown library instance to use in excerpt filter
 const markdownLibrary = markdownIt({
   html: true,
@@ -218,6 +246,14 @@ module.exports = function (eleventyConfig) {
 };
 
 async function getRepositoryInformation(repository, classPrefix, githubToken) {
+  // Check cache first
+  const cacheKey = `repo:${repository}`;
+  const cachedData = getCachedData(cacheKey);
+  if (cachedData !== null) {
+    console.log(`Using cached data for ${repository}`);
+    return cachedData;
+  }
+
   const url = `https://api.github.com/repos/${repository}`;
 
   try {
@@ -240,14 +276,25 @@ async function getRepositoryInformation(repository, classPrefix, githubToken) {
       </div>
     </div>
     `
+    setCachedData(cacheKey, details);
     return details;
   } catch (err) {
     console.error("Unable to get repository information: ", err);
-    return "errored";
+    const errorResult = "errored";
+    setCachedData(cacheKey, errorResult);
+    return errorResult;
   }
 }
 
 async function getUserInformation(username, githubToken) {
+  // Check cache first
+  const cacheKey = `user:${username}`;
+  const cachedData = getCachedData(cacheKey);
+  if (cachedData !== null) {
+    console.log(`Using cached data for user ${username}`);
+    return cachedData;
+  }
+
   const url = `https://api.github.com/users/${username}`;
 
   try {
@@ -284,9 +331,12 @@ async function getUserInformation(username, githubToken) {
       </div>
     </div>
     `
+    setCachedData(cacheKey, card);
     return card;
   } catch (err) {
     console.error("Unable to get user information: ", err);
-    return "";
+    const errorResult = "";
+    setCachedData(cacheKey, errorResult);
+    return errorResult;
   }
 }

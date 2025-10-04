@@ -11,5 +11,6 @@ node_modules/
 
 .envrc
 
+# AI tools
 CLAUDE.md
-
+.claude/
