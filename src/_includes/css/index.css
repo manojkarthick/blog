@@ -475,6 +475,127 @@ body.dark-mode .between-posts-navigation a[href]:visited {
   color: var(--regular-link-color);
 }
 
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .projects {
+    grid-template-columns: 1fr;
+  }
+}
+
+.projects > p {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
+
+.project-card {
+  border: 1px solid var(--lightgray);
+  border-radius: 8px;
+  padding: 1.25rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: var(--white);
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .project-card {
+  background-color: var(--darkmode-bg);
+  border-color: #30363d;
+}
+
+body.dark-mode .project-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.project-card-header {
+  margin-bottom: 0.75rem;
+}
+
+.project-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--regular-link-color);
+  text-decoration: none;
+}
+
+.project-card-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.project-card:hover .project-card-title {
+  text-decoration: underline;
+}
+
+body.dark-mode .project-card-title {
+  color: var(--darkmode-link-color);
+}
+
+.project-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.project-card-description {
+  color: var(--darkgray);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+  text-align: left;
+}
+
+body.dark-mode .project-card-description {
+  color: var(--darkmode-text);
+}
+
+.project-card-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--darkgray);
+  align-items: center;
+}
+
+body.dark-mode .project-card-meta {
+  color: var(--darkmode-text);
+}
+
+.project-card-language {
+  font-weight: 500;
+}
+
+.project-card-stars {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.project-card-stars::before {
+  content: '★';
+  font-size: 1rem;
+  color: #f1c40f;
+}
+
 .projects a[href] {
   color: var(--regular-link-color) !important;
   text-decoration: none;
@@ -483,4 +604,124 @@ body.dark-mode .between-posts-navigation a[href]:visited {
 body.dark-mode .projects a[href] {
   color: var(--darkmode-link-color) !important;
   text-decoration: none;
+}
+
+/* GitHub User Card */
+.github-user-card {
+  border: 1px solid var(--lightgray);
+  border-radius: 8px;
+  padding: 0.4rem;
+  background-color: var(--white);
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+body.dark-mode .github-user-card {
+  background-color: var(--darkmode-bg);
+  border-color: #30363d;
+}
+
+.github-user-left {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.github-user-header {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.github-user-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  filter: none !important;
+  flex-shrink: 0;
+  margin-left: 0.2rem;
+}
+
+.github-user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.1rem;
+}
+
+.github-user-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--regular-link-color);
+  line-height: 1.3;
+}
+
+body.dark-mode .github-user-name {
+  color: var(--darkmode-link-color);
+}
+
+.github-user-username {
+  font-size: 0.8rem;
+  color: var(--darkgray);
+  line-height: 1.3;
+}
+
+body.dark-mode .github-user-username {
+  color: var(--darkmode-text);
+}
+
+.github-user-bio {
+  font-size: 0.8rem;
+  color: var(--darkgray);
+  line-height: 1.3;
+}
+
+body.dark-mode .github-user-bio {
+  color: var(--darkmode-text);
+}
+
+.github-user-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.1rem;
+  padding-left: 0.6rem;
+  margin-right: 0.2rem;
+  border-left: 1px solid var(--lightgray);
+}
+
+body.dark-mode .github-user-stats {
+  border-color: #30363d;
+}
+
+.github-user-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1.3;
+}
+
+.github-user-stat-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--black);
+  min-width: 2rem;
+}
+
+body.dark-mode .github-user-stat-value {
+  color: var(--darkmode-text);
+}
+
+.github-user-stat-label {
+  font-size: 0.7rem;
+  color: var(--darkgray);
+  font-weight: 500;
+}
+
+body.dark-mode .github-user-stat-label {
+  color: var(--darkmode-text);
 }

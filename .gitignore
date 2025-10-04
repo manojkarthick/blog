@@ -10,3 +10,7 @@ node_modules/
 .lighthouse
 
 .envrc
+
+# AI tools
+CLAUDE.md
+.claude/

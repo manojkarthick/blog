@@ -9,6 +9,45 @@ const CleanCSS = require("clean-css");
 const axios = require("axios");
 const metagen = require("eleventy-plugin-metagen");
 
+// Cache for GitHub API responses with timestamps
+const githubCache = new Map();
+const CACHE_DURATION = 60 * 60 * 1000; // 1 hour in milliseconds
+
+function getCachedData(key) {
+  const cached = githubCache.get(key);
+  if (!cached) return null;
+
+  const { data, timestamp } = cached;
+  const now = Date.now();
+
+  // Check if cache is still valid (less than 1 hour old)
+  if (now - timestamp < CACHE_DURATION) {
+    return data;
+  }
+
+  // Cache expired, remove it
+  githubCache.delete(key);
+  return null;
+}
+
+function setCachedData(key, data) {
+  githubCache.set(key, {
+    data: data,
+    timestamp: Date.now()
+  });
+}
+
+// Create markdown library instance to use in excerpt filter
+const markdownLibrary = markdownIt({
+  html: true,
+  breaks: true,
+  linkify: true
+}).use(markdownItAnchor, {
+  permalink: true,
+  permalinkClass: "direct-link",
+  permalinkSymbol: "#"
+});
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
@@ -16,7 +55,38 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.setDataDeepMerge(true);
 
-  eleventyConfig.addShortcode('excerpt', article => extractExcerpt(article));
+  eleventyConfig.addAsyncFilter('excerpt', async (post) => {
+    // Read the raw markdown content and render it completely
+    const readData = await post.template.read();
+    const markdownContent = readData?.content;
+
+    if (!markdownContent) {
+      return null;
+    }
+
+    // Render the entire markdown document so reference-style links work
+    const fullRendered = markdownLibrary.render(markdownContent);
+
+    let excerpt = null;
+    const startMarker = '<!-- Excerpt Start -->';
+    const endMarker = '<!-- Excerpt End -->';
+
+    const startPosition = fullRendered.indexOf(startMarker);
+    const endPosition = fullRendered.indexOf(endMarker);
+
+    if (startPosition !== -1 && endPosition !== -1) {
+      // Extract the rendered HTML excerpt
+      excerpt = fullRendered.substring(startPosition + startMarker.length, endPosition).trim();
+    } else {
+      // Fallback: use first paragraph
+      const match = fullRendered.match(/<p>(.*?)<\/p>/s);
+      if (match) {
+        excerpt = match[0];
+      }
+    }
+
+    return excerpt;
+  });
 
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
 
@@ -57,16 +127,24 @@ module.exports = function (eleventyConfig) {
   });
 
   // add filter for fetching github repository information
-  eleventyConfig.addNunjucksAsyncFilter("githubInfo", async function(repository, callback) {
+  eleventyConfig.addAsyncFilter("githubInfo", async function(repository) {
     console.log(`Gathering information from the Github API for ${repository}`);
     const classPrefix = "github-info";
     const githubToken = process.env.GITHUB_TOKEN;
     let repoInfo = await getRepositoryInformation(repository, classPrefix, githubToken);
     if (repoInfo == "errored") {
-      callback(null, repository);
+      return repository;
     } else {
-      callback(null, repoInfo);
+      return repoInfo;
     }
+  });
+
+  // add filter for fetching github user information
+  eleventyConfig.addAsyncFilter("githubUserCard", async function(username) {
+    console.log(`Gathering user information from the Github API for ${username}`);
+    const githubToken = process.env.GITHUB_TOKEN;
+    let userCard = await getUserInformation(username, githubToken);
+    return userCard;
   });
 
   eleventyConfig.addCollection("tagList", function (collection) {
@@ -113,15 +191,6 @@ module.exports = function (eleventyConfig) {
   });
 
   /* Markdown Overrides */
-  let markdownLibrary = markdownIt({
-    html: true,
-    breaks: true,
-    linkify: true
-  }).use(markdownItAnchor, {
-    permalink: true,
-    permalinkClass: "direct-link",
-    permalinkSymbol: "#"
-  });
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   // Browsersync Overrides
@@ -176,70 +245,98 @@ module.exports = function (eleventyConfig) {
   };
 };
 
-function extractExcerpt(article) {
-  if (!article.hasOwnProperty('templateContent')) {
-    console.warn('Failed to extract excerpt: Document has no property "templateContent".');
-    return null;
+async function getRepositoryInformation(repository, classPrefix, githubToken) {
+  // Check cache first
+  const cacheKey = `repo:${repository}`;
+  const cachedData = getCachedData(cacheKey);
+  if (cachedData !== null) {
+    console.log(`Using cached data for ${repository}`);
+    return cachedData;
   }
 
-  let excerpt = null;
-  const content = article.templateContent;
-
-  // The start and end separators to try and match to extract the excerpt
-  const separatorsList = [
-    {start: '<!-- Excerpt Start -->', end: '<!-- Excerpt End -->'},
-    {start: '<p>', end: '</p>'}
-  ];
-
-  separatorsList.some(separators => {
-    const startPosition = content.indexOf(separators.start);
-    const endPosition = content.indexOf(separators.end);
-
-    if (startPosition !== -1 && endPosition !== -1) {
-      excerpt = content.substring(startPosition + separators.start.length, endPosition).trim();
-      return true; // Exit out of array loop on first match
-    }
-  });
-
-  return excerpt;
-}
-
-async function getRepositoryInformation(repository, classPrefix, githubToken) {
   const url = `https://api.github.com/repos/${repository}`;
-  const response = await axios.get( url, { headers: {"Authorization": `Bearer ${githubToken}`}} );
 
   try {
+    const response = await axios.get(url, {
+      headers: {"Authorization": `token ${githubToken}`}
+    });
     const data = response ? response.data : null;
 
-    let language = "unknown";
-    if (data.language) {
-      language = data.language
-    }
-    let listItems = ""
-    if (data.description) {
-      listItems = listItems.concat(`<li class="${classPrefix}-description">${data.description}</li>`);
-    }
-    if (data.language) {
-      language = data.language
-      listItems = listItems.concat(`<li class="${classPrefix}-lang">Language:<span> ${data.language}</li>`);
-    } else {
-      listItems = listItems.concat(`<li class="${classPrefix}-lang">Language:<span> unknown</li>`);
-    }
-    if (data.stargazers_count > 0) {
-      listItems = listItems.concat(`<li class="${classPrefix}-stars">Stars:<span> ${data.watchers} ⭐️</li>`);
-    }
     const details = `
-    <ul>
-      <li><a href="https://github.com/${repository}" class="${classPrefix}-name" target="_blank">${data.name}</a>
-        <ul>
-        ${listItems}
-        </ul>
-      </li>
-    </ul>
+    <div class="project-card">
+      <div class="project-card-header">
+        <a href="https://github.com/${repository}" class="project-card-title" target="_blank" rel="noopener">${data.name}</a>
+      </div>
+      <div class="project-card-body">
+        ${data.description ? `<p class="project-card-description">${data.description}</p>` : ''}
+        <div class="project-card-meta">
+          ${data.language ? `<span class="project-card-language">${data.language}</span>` : ''}
+          ${data.stargazers_count > 0 ? `<span class="project-card-stars">${data.stargazers_count}</span>` : ''}
+        </div>
+      </div>
+    </div>
     `
+    setCachedData(cacheKey, details);
     return details;
   } catch (err) {
     console.error("Unable to get repository information: ", err);
-    return "errored";
+    const errorResult = "errored";
+    setCachedData(cacheKey, errorResult);
+    return errorResult;
+  }
+}
+
+async function getUserInformation(username, githubToken) {
+  // Check cache first
+  const cacheKey = `user:${username}`;
+  const cachedData = getCachedData(cacheKey);
+  if (cachedData !== null) {
+    console.log(`Using cached data for user ${username}`);
+    return cachedData;
+  }
+
+  const url = `https://api.github.com/users/${username}`;
+
+  try {
+    const response = await axios.get(url, {
+      headers: {"Authorization": `token ${githubToken}`}
+    });
+    const data = response ? response.data : null;
+
+    const card = `
+    <div class="github-user-card" onclick="window.open('${data.html_url}', '_blank')">
+      <div class="github-user-left">
+        <div class="github-user-header">
+          <img src="${data.avatar_url}" alt="${data.name}" class="github-user-avatar">
+          <div class="github-user-info">
+            <div class="github-user-name">${data.name}</div>
+            <div class="github-user-username">@${data.login}</div>
+            ${data.bio ? `<div class="github-user-bio">${data.bio}</div>` : ''}
+          </div>
+        </div>
+      </div>
+      <div class="github-user-stats">
+        <div class="github-user-stat">
+          <div class="github-user-stat-value">${data.public_repos}</div>
+          <div class="github-user-stat-label">REPOS</div>
+        </div>
+        <div class="github-user-stat">
+          <div class="github-user-stat-value">${data.public_gists}</div>
+          <div class="github-user-stat-label">GISTS</div>
+        </div>
+        <div class="github-user-stat">
+          <div class="github-user-stat-value">${data.followers}</div>
+          <div class="github-user-stat-label">FOLLOWERS</div>
+        </div>
+      </div>
+    </div>
+    `
+    setCachedData(cacheKey, card);
+    return card;
+  } catch (err) {
+    console.error("Unable to get user information: ", err);
+    const errorResult = "";
+    setCachedData(cacheKey, errorResult);
+    return errorResult;
   }
 }

@@ -9,7 +9,7 @@
     <div class="recents-datetime">by {{ metadata.author.name }} on
       <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
     </div>
-    <p class="recents-description">{% excerpt post %}</p>
+    <div class="recents-description">{{ post | excerpt | safe }}</div>
     <div class="recents-readmore">
       <a href="{{ post.url | url }}">Continue reading...</a>
     </div>
