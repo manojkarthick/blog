@@ -1,4 +1,4 @@
-# Blog
+# Blog  [![Netlify Status](https://api.netlify.com/api/v1/badges/1fb26768-91cf-49f0-ab46-79fe7477fc26/deploy-status)](https://app.netlify.com/projects/manojkarthick/deploys)
 
 This repo contains the source code for my personal blog. You can view it [here](https://www.manojkarthick.com/).
 Built with [11ty](https://11ty.dev) and hosted on [Netlify](https://www.netlify.com).
@@ -21,9 +21,8 @@ Built with [11ty](https://11ty.dev) and hosted on [Netlify](https://www.netlify.
 2. Logon to Netlify using `netlify login`. This will also create an access token if you don't have one already
 3. Run `netlify dev` to see if the website builds properly on your local machine
 4. Run `netlify deploy` to manually deploy the site from the CLI.
-5. Follow the steps listed [here](https://docs.netlify.com/cli/get-started/#manual-setup) if you want to set up automatic deployments on `git push`
+5. Follow the steps listed [here](https://docs.netlify.com/build/frameworks/framework-setup-guides/eleventy/) if you want to set up automatic deployments on `git push`
 
 ### Archive
 
 To access the old version of this blog, please visit [manojkarthick.github.io](https://manojkarthick.github.io/).
-
