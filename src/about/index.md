@@ -18,8 +18,8 @@ You can find me across the interwebs as @manojkarthick :
 
 <br/>
 
-<div class="github-card" data-github="manojkarthick" data-width="400" data-height="" data-theme="default"></div>
-<script src="/js/github-cards.js"></script>
+{% assign userCard = "manojkarthick" | githubUserCard %}
+{{ userCard }}
 
 <br/>
 

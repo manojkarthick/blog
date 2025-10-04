@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a personal blog built with [11ty (Eleventy)](https://11ty.dev) static site generator and hosted on Netlify. The blog features posts, quizzes, and short content pieces with support for syntax highlighting, RSS feeds, and social media metadata generation.
+This is a personal blog built with [11ty (Eleventy)](https://11ty.dev) static site generator (v3) and hosted on Netlify. The blog features posts, quizzes, and short content pieces with support for syntax highlighting, RSS feeds, and social media metadata generation.
 
 ## Development Commands
 
@@ -52,7 +52,7 @@ This is a personal blog built with [11ty (Eleventy)](https://11ty.dev) static si
 - **GitHub Integration**: Fetches repository information via GitHub API (requires GITHUB_TOKEN environment variable)
 - **Social Media**: Automated meta tag generation for social platforms
 - **Performance**: CSS minification and asset optimization
-- **SEO**: Sitemap generation and proper meta tags
+- **SEO**: Sitemap generation, proper meta tags, and Eleventy generator tag
 - **Dark Mode**: Supported (noted in README TODO as completed)
 
 ### Template Engines
