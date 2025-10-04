@@ -320,6 +320,7 @@ body.dark-mode .tmpl-home .recents-title-divider {
 }
 
 .recents-readmore {
+  margin-top: 1.5em;
   margin-bottom: 1em;
 }
 
