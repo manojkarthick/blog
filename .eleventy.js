@@ -8,6 +8,8 @@ const markdownItAnchor = require("markdown-it-anchor");
 const CleanCSS = require("clean-css");
 const axios = require("axios");
 const metagen = require("eleventy-plugin-metagen");
+const UpgradeHelper = require("@11ty/eleventy-upgrade-help");
+
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -143,6 +145,9 @@ module.exports = function (eleventyConfig) {
 
   // plugin to generate meta tags for social media
   eleventyConfig.addPlugin(metagen);
+
+  // If you have other `addPlugin` calls, it’s important that UpgradeHelper is added last.
+  eleventyConfig.addPlugin(UpgradeHelper);
 
   return {
     templateFormats: [
