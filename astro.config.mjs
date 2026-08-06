@@ -101,5 +101,5 @@ export default defineConfig({
     plugins: [tailwindcss(), Icons({ compiler: "astro" })],
   },
 
-  adapter: cloudflare(),
+  adapter: cloudflare({ imageService: "compile" }),
 });
