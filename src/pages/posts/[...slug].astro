@@ -4,7 +4,9 @@ import PostContent from "../../components/PostContent.astro";
 import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("posts");
+  const posts = await getCollection("posts", ({ data }) =>
+    import.meta.env.PROD ? !data.draft : true,
+  );
   return posts.map((post) => ({
     params: { slug: post.id },
     props: post,

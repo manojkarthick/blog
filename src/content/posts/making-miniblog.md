@@ -2,6 +2,7 @@
 title: "Making Miniblog"
 description: "For those that appreciate simplicity."
 date: "Nov 08 2024"
+draft: true
 ---
 
 ## Introduction
