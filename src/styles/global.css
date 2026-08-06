@@ -1,0 +1,157 @@
+@import "tailwindcss";
+@config "../../tailwind.config.mjs";
+
+@theme inline {
+  --font-sans: var(--font-geist);
+  --font-mono: var(--font-geist-mono);
+}
+
+@layer components {
+  article {
+    p {
+      @apply my-4 leading-relaxed;
+    }
+    h1 {
+      @apply my-4 text-xl font-medium dark:text-white;
+    }
+    h2 {
+      @apply my-4 text-lg font-medium dark:text-white;
+    }
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply my-4 font-medium dark:text-white;
+    }
+    .anchor-link {
+      @apply ml-1 no-underline opacity-0 transition-opacity;
+      color: inherit;
+    }
+
+    h2:hover .anchor-link,
+    h3:hover .anchor-link,
+    h4:hover .anchor-link,
+    h5:hover .anchor-link,
+    h6:hover .anchor-link {
+      @apply opacity-50;
+    }
+
+    h2:hover .anchor-link:hover,
+    h3:hover .anchor-link:hover,
+    h4:hover .anchor-link:hover,
+    h5:hover .anchor-link:hover,
+    h6:hover .anchor-link:hover {
+      @apply opacity-100;
+    }
+
+    :not(pre) > code {
+      @apply rounded border bg-zinc-200/50 px-1 py-0.5 font-mono text-sm font-medium whitespace-nowrap text-black dark:border-zinc-700 dark:bg-zinc-800/50 dark:text-white;
+    }
+    .expressive-code {
+      @apply my-4;
+    }
+    .expressive-code pre {
+      @apply max-h-[600px];
+    }
+    img {
+      @apply my-4 rounded-lg border dark:border-zinc-700;
+    }
+    video {
+      @apply my-4 rounded-lg border dark:border-zinc-700;
+    }
+    blockquote {
+      @apply my-4 border-l-2 pl-4;
+    }
+    .markdown-alert {
+      @apply my-4 rounded-lg border-l-4 px-4 py-3;
+    }
+    .markdown-alert > :first-child {
+      @apply mt-0;
+    }
+    .markdown-alert > :last-child {
+      @apply mb-0;
+    }
+    .markdown-alert-title {
+      @apply flex items-center gap-2 font-medium;
+    }
+    .markdown-alert-title .octicon {
+      @apply h-4 w-4 fill-current;
+    }
+    .markdown-alert-note {
+      @apply border-blue-500 bg-blue-50 text-blue-900 dark:border-blue-400 dark:bg-blue-950/30 dark:text-blue-200;
+    }
+    .markdown-alert-note .markdown-alert-title {
+      @apply text-blue-700 dark:text-blue-400;
+    }
+    .markdown-alert-tip {
+      @apply border-green-500 bg-green-50 text-green-900 dark:border-green-400 dark:bg-green-950/30 dark:text-green-200;
+    }
+    .markdown-alert-tip .markdown-alert-title {
+      @apply text-green-700 dark:text-green-400;
+    }
+    .markdown-alert-important {
+      @apply border-purple-500 bg-purple-50 text-purple-900 dark:border-purple-400 dark:bg-purple-950/30 dark:text-purple-200;
+    }
+    .markdown-alert-important .markdown-alert-title {
+      @apply text-purple-700 dark:text-purple-400;
+    }
+    .markdown-alert-warning {
+      @apply border-amber-500 bg-amber-50 text-amber-900 dark:border-amber-400 dark:bg-amber-950/30 dark:text-amber-200;
+    }
+    .markdown-alert-warning .markdown-alert-title {
+      @apply text-amber-700 dark:text-amber-400;
+    }
+    .markdown-alert-caution {
+      @apply border-red-500 bg-red-50 text-red-900 dark:border-red-400 dark:bg-red-950/30 dark:text-red-200;
+    }
+    .markdown-alert-caution .markdown-alert-title {
+      @apply text-red-700 dark:text-red-400;
+    }
+    a {
+      @apply text-blue-500 underline;
+    }
+    table {
+      @apply my-4 w-full table-auto border-collapse text-sm;
+      th {
+        @apply border-b p-4 text-left font-medium dark:border-zinc-700;
+      }
+      td {
+        @apply border-b bg-zinc-50 p-4 dark:border-zinc-700 dark:bg-zinc-800;
+      }
+    }
+    ol {
+      @apply my-1 list-decimal space-y-1 pl-6 [&_ol]:pl-5 [&_ul]:pl-5;
+    }
+    ul {
+      @apply my-1 list-disc space-y-1 pl-6 [&_ol]:pl-5 [&_ul]:pl-5;
+    }
+    ul.contains-task-list {
+      @apply list-none;
+    }
+    .task-list-item input[type="checkbox"] {
+      @apply mr-2 -ml-5 h-4 w-4 appearance-none rounded border-2 border-zinc-400 bg-zinc-100 align-middle dark:border-zinc-400 dark:bg-transparent;
+    }
+    .task-list-item input[type="checkbox"]:checked {
+      @apply border-zinc-600 bg-zinc-600;
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    kbd {
+      @apply rounded border border-b-2 bg-zinc-100 px-1 py-0.5 font-mono text-xs font-medium text-black dark:border-zinc-700 dark:bg-zinc-800 dark:text-white;
+    }
+    mark {
+      @apply dark:bg-yellow-500/50 dark:text-white;
+    }
+    section[data-footnotes] {
+      @apply mt-8 border-t pt-6 text-zinc-500 dark:border-zinc-700 dark:text-zinc-400;
+    }
+  }
+}
+
+.dark article .task-list-item input[type="checkbox"]:checked {
+  background-color: #e4e4e7;
+  border-color: #e4e4e7;
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%2327272a' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+}
