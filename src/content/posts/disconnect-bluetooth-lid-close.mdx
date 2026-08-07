@@ -7,7 +7,6 @@ date: "2022-01-30 18:00:00"
 import { Image } from "astro:assets";
 import sonyWh1000Xm4 from "../../assets/images/sony-wh-1000xm4.jpg";
 
-{/* Excerpt Start */}
 My current favorite headphones are the [Sony-WH1000XM4][1]s. They are light, have great noise cancellation and tremendous battery life. I use them on both my personal and work MacBook.
 
 But I have two minor annoyances with how they behave. This is not specific to these but bluetooth headphones in general.
@@ -18,8 +17,6 @@ But I have two minor annoyances with how they behave. This is not specific to th
 The solution I came up with is to disconnect my headphones when the MacBook goes to sleep. To avoid constant disconnects, you can adjust your Mac's [sleep/wake configuration][9] or use an app like [Amphetamine][2] to keep your Mac awake.
 
 <Image src={sonyWh1000Xm4} alt="Sony WH1000XM4" />
-
-{/* Excerpt End */}
 
 Thankfully, [Hammerspoon][3] provides an easy way to hook into system's sleep events. If you're unfamiliar with Hammerspoon, it's a macOS based automation tool that allows you interact with various parts of the operating system using a Lua based scripting environment.
 

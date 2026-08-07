@@ -4,11 +4,7 @@ description: "Build a simple command-line URL shortener in Go using the TinyURL 
 date: "2016-08-26"
 ---
 
-<!-- Excerpt Start -->
-
 I've been learning and experimenting with Golang in the past few days. I wanted to learn Go by developing something I thought would be useful.
-
-<!-- Excerpt End -->
 
 Sharing interesting articles, videos and blog posts with my friends is something I enjoy doing all the time.
 

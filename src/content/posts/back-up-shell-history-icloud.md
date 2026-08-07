@@ -4,13 +4,9 @@ description: "Back up your Zsh shell history to iCloud periodically with a launc
 date: "2022-01-03 15:15:00"
 ---
 
-<!-- Excerpt Start -->
-
 Since I integrated [fzf][1] into my workflow almost four years back, I make use of my shell history quite heavily. Binding `Ctrl+R` to fuzzy search using fzf has been a game changer for me.
 
 Being able to quickly search through my shell history allows me to focus on the task at hand instead of remembering or noting down the commands I ran to do something. Given my dependence on shell history, I figured it was a good idea to back it up to iCloud periodically.
-
-<!-- Excerpt End -->
 
 Let's look at the command we want to run first. Please note that it uses absolute paths rather than relative paths.
 
