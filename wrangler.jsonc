@@ -3,6 +3,17 @@
   "compatibility_flags": ["global_fetch_strictly_public"],
   "name": "blog",
   "main": "@astrojs/cloudflare/entrypoints/server",
+  "workers_dev": true,
+  "routes": [
+    {
+      "pattern": "manojkarthick.com",
+      "custom_domain": true,
+    },
+    {
+      "pattern": "www.manojkarthick.com",
+      "custom_domain": true,
+    },
+  ],
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
