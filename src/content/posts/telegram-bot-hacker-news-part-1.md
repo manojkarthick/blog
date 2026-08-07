@@ -4,7 +4,7 @@ description: "Build a Python Telegram bot that retrieves and formats Hacker News
 date: "2017-05-11"
 ---
 
-According to Wikipedia, a chatbot is a computer program which conducts a conversation via auditory or textual methods. [1]
+According to Wikipedia, a chatbot is a computer program which conducts a conversation via auditory or textual methods.[^chatbot]
 
 The Telegram instant messaging app is known for it's wide selection of chat bots ranging from bots to download videos from Youtube to ones which can post a gist on Github. In this particular tutorial we will create a Telegram Bot which will display information from Hacker News. Hacker News is a very popular forum/social news website focusing on technology, science, software engineering and entreprenuership. I am an avid reader of Hacker News and I wanted to create a Telegram bot for getting the latest/top feed from the Hacker News site.
 
@@ -107,4 +107,4 @@ Now that we have got the required data for each story ID, the next step in would
 
 All hail the Botfather! Happy Coding!
 
-[1] Chatbot - Wikipedia ([https://en.wikipedia.org/wiki/Chatbot](https://en.wikipedia.org/wiki/Chatbot))
+[^chatbot]: [Chatbot - Wikipedia](https://en.wikipedia.org/wiki/Chatbot)
