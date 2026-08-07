@@ -1,0 +1,48 @@
+---
+import GithubCard from "../components/GithubCard.astro";
+import { SITE_TITLE } from "../consts";
+import Layout from "../layouts/Layout.astro";
+
+const projects = [
+  "manojkarthick/pqrs",
+  "manojkarthick/reddsaver",
+  "manojkarthick/expenses",
+  "manojkarthick/czk",
+  "manojkarthick/git-trend",
+] as const;
+
+const description =
+  "A selection of open-source tools and experiments built by Manoj Karthick.";
+---
+
+<Layout title={`Projects · ${SITE_TITLE}`} description={description}>
+  <header>
+    <h1 class="text-xl font-medium dark:text-white">Projects</h1>
+    <p class="mt-2 leading-relaxed text-zinc-600 dark:text-zinc-400">
+      A selection of open-source tools and small experiments I've built over the
+      years.
+    </p>
+  </header>
+
+  <ul class="mt-6 space-y-3">
+    {
+      projects.map((repo) => (
+        <li class="[&_.github-card]:my-0">
+          <GithubCard repo={repo} />
+        </li>
+      ))
+    }
+  </ul>
+
+  <p class="mt-6 text-sm text-zinc-500 dark:text-zinc-400">
+    You can find the rest on{` `}
+    <a
+      href="https://github.com/manojkarthick?tab=repositories"
+      target="_blank"
+      rel="noreferrer"
+      class="underline decoration-zinc-300 underline-offset-4 transition-colors hover:text-zinc-900 dark:decoration-zinc-600 dark:hover:text-zinc-100"
+    >
+      GitHub
+    </a>.
+  </p>
+</Layout>
