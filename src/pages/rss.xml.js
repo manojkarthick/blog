@@ -6,13 +6,18 @@ export async function GET(context) {
   const posts = await getCollection("posts", ({ data }) =>
     import.meta.env.PROD ? !data.draft : true,
   );
+
   return rss({
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     site: context.site,
-    items: posts.map((post) => ({
-      ...post.data,
-      link: `/posts/${post.id}/`,
-    })),
+    items: posts
+      .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+      .map((post) => ({
+        title: post.data.title,
+        description: post.data.description,
+        pubDate: post.data.date,
+        link: `/posts/${post.id}/`,
+      })),
   });
 }
