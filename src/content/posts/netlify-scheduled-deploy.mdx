@@ -10,6 +10,9 @@ import netlifyBuildHook from "../../assets/images/netlify-build-hook.png";
 import netlifyEnvVars from "../../assets/images/netlify-env-vars.png";
 import projectsLastUpdated from "../../assets/images/projects-last-updated.png";
 
+> [!NOTE]
+> This blog now runs on [Astro](https://astro.build/) and [Cloudflare Workers](https://workers.cloudflare.com/). GitHub cards fetch live data in the browser, so scheduled Netlify rebuilds are no longer needed.
+
 ## Background
 
 Earlier this month, [Netlify][1] announced their [acquisition][11] of [Quirrel][2] and subsequently announced the availability of [Netlify Scheduled functions][3] in Beta. Scheduled functions are serverless cron jobs that run periodically alongside your Netlify site. I just started using this feature for my blog to automatically deploy my site. Let's dive in to see how you can too!
