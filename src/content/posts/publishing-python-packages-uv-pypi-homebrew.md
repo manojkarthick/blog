@@ -4,9 +4,10 @@ description: "Automate Python package releases to PyPI and Homebrew with uv and 
 date: "2026-04-06"
 ---
 
-
 <!-- Excerpt Start -->
+
 If you already use `uv` for local development, publishing to PyPI is almost boring. The interesting part is everything around it: release automation, PyPI propagation delays, and getting a Homebrew formula to feel as polished as the PyPI package.
+
 <!-- Excerpt End -->
 
 I recently wired this up for [`czk`](https://github.com/manojkarthick/czk), a small Python CLI that wraps [`czkawka_cli`](https://github.com/qarmin/czkawka) for duplicate media workflows. The package itself was straightforward. The release pipeline was not.

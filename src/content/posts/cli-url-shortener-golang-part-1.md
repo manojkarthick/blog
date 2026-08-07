@@ -4,9 +4,10 @@ description: "Build a simple command-line URL shortener in Go using the TinyURL 
 date: "2016-08-26"
 ---
 
-
 <!-- Excerpt Start -->
+
 I've been learning and experimenting with Golang in the past few days. I wanted to learn Go by developing something I thought would be useful.
+
 <!-- Excerpt End -->
 
 Sharing interesting articles, videos and blog posts with my friends is something I enjoy doing all the time.
@@ -30,10 +31,11 @@ import (
 	"os"
 )
 ```
+
 Let us create a Package named main. The main package is where any Go program starts execution. We will also import the following packages.
 
 1. fmt - For formatting our outputs
-2. io -  This the Input/Output package, all reads, writes and copying is done through this package.
+2. io - This the Input/Output package, all reads, writes and copying is done through this package.
 3. log - Who doesn't need logging?
 4. net/http - We import this package for making the HTTP GET Requests.
 5. os - To get the command line arguments that we need.
@@ -48,9 +50,9 @@ fmt.Println("Tiny URL API consumption")
 		os.Exit(1)
 	}
 ```
+
 The `if` condition checks whether we have the required number of Command Line parameters. `os.Args[0]` refers to the filename and `os.Args[1]` refers to the URL we want to shorten. Those familiar with C should find this right at home.
 Every Go program needs a filename to execute.
-
 
 ```go
 baseUrl := "http://tinyurl.com/api-create.php?url="
@@ -90,9 +92,10 @@ You can also build and run in one go, like:
 ```shell
 $ go run <the_program_name>
 ```
-Here's the full code:
-<script src="https://gist.github.com/manojkarthick/0893e83dc9f7d3019b974f7a52cedb14.js"></script>
 
+Here's the full code:
+
+<script src="https://gist.github.com/manojkarthick/0893e83dc9f7d3019b974f7a52cedb14.js"></script>
 
 Example output:
 
@@ -103,4 +106,5 @@ $ Tiny URL API consumption
   http://tinyurl.com/4yc3v8u
 
 ```
+
 Happy Coding!

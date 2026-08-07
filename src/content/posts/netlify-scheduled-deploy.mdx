@@ -52,9 +52,9 @@ The function is pretty simple - we register a new handler that sends a `POST` re
 const fetch = require("node-fetch");
 const WEBHOOK_URL = process.env.SCHEDULED_DEPLOY_HOOK_URL;
 
-const handler = async function(event, context) {
-  console.log("Rebuilding site. Received event:", event)
-  await fetch(WEBHOOK_URL, {method: 'POST'});
+const handler = async function (event, context) {
+  console.log("Rebuilding site. Received event:", event);
+  await fetch(WEBHOOK_URL, { method: "POST" });
 
   return {
     statusCode: 200,
@@ -79,7 +79,6 @@ Run `netlify deploy` (or commit to the repo if you have git integration enabled)
 The projects page on my blog displays when the information was last updated. I find this to be a handy way to verify your site's build time and also verify your function ran successfully. As a bonus, it also subtly conveys to the reader that the information on the page might be slightly out of date.
 
 <Image src={projectsLastUpdated} alt="Project Last updated time" />
-
 
 [1]: https://www.netlify.com/
 [2]: https://dev.to/quirrel/quirrel-is-acquired-and-i-am-joining-netlify-dha
