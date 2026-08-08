@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig, fontProviders } from "astro/config";
+import { unified } from "@astrojs/markdown-remark";
 import { pluginCollapsibleSections } from "@expressive-code/plugin-collapsible-sections";
 import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
 import expressiveCode from "astro-expressive-code";
@@ -79,22 +80,24 @@ export default defineConfig({
   ],
 
   markdown: {
-    remarkPlugins: [remarkGithubBlockquoteAlert],
-    rehypePlugins: [
-      rehypeSlug,
-      [
-        rehypeAutolinkHeadings,
-        {
-          behavior: "append",
-          content: { type: "text", value: "#" },
-          properties: {
-            className: ["anchor-link"],
-            ariaHidden: true,
-            tabIndex: -1,
+    processor: unified({
+      remarkPlugins: [remarkGithubBlockquoteAlert],
+      rehypePlugins: [
+        rehypeSlug,
+        [
+          rehypeAutolinkHeadings,
+          {
+            behavior: "append",
+            content: { type: "text", value: "#" },
+            properties: {
+              className: ["anchor-link"],
+              ariaHidden: true,
+              tabIndex: -1,
+            },
           },
-        },
+        ],
       ],
-    ],
+    }),
   },
 
   vite: {
