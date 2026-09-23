@@ -23,7 +23,11 @@ const { Content } = await render(post);
   description={post.data.description}
   image={post.data.image}
 >
-  <PostContent title={post.data.title} date={post.data.date}>
+  <PostContent
+    title={post.data.title}
+    date={post.data.date}
+    updates={post.data.updates}
+  >
     <Content />
   </PostContent>
 </Layout>

@@ -30,7 +30,11 @@ const canonicalURL = `/posts/${post.id}/`;
   image={post.data.image}
   canonicalURL={canonicalURL}
 >
-  <PostContent title={post.data.title} date={post.data.date}>
+  <PostContent
+    title={post.data.title}
+    date={post.data.date}
+    updates={post.data.updates}
+  >
     <Content />
   </PostContent>
 </Layout>
